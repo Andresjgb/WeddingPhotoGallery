@@ -1,9 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Wedding PhotoGallery</title>
+	<meta charset="utf-8" />
+	<title>Wedding PhotoGallery: Galería fotográfica de invitados</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/normalize.css" />
 </head>
 <body>
+	<header>
+		<div class="logo left">
+			<img src="imagenes/logo.png" alt="WeddingPhotoGallery"/>
+		</div>
+		<div class="titular">
+			<h1 class="titulo">
+			Wedding PhotoGallery
+			</h1>
+		</div>
+	</header>
+	<nav>
+		<ul class="menu">
+			<li><a href="#">Sube tu foto</a></li>
+			<li><a href="#">Ver la galeria</a></li>
+		</ul>
+	</nav>
+<section class="posts">
+		<article class="post">
+			<div class="descripcion">
+				<figure class="imagen">
+				<img src="imagenes/upload.jpg">
+				</figure>
+				<div class="detalles">
+					<h2 class="titulo">
+						Sube tu foto haciendo click en el boton.
+					</h2>
+			</div>
+			<div class="acciones">
+				<div class="votos">
+					<span class="total">
+					<form enctype="multipart/form-data" method="post" action="upload.php">
+    				<input type="file" name="fileToUpload" id="fileToUpload" />
+    				<input type="submit" value="Subir" />
+    				</form>
 
+					</span>
+				</div>
+				<div class="datos">
+				</div>
+			</div>
+		</article>
+	</section>
+	<footer>
+		<h3> 
+			<strong>® Andresjgb</strong>
+			<span class="copy">2014</span>
+		</h3>
+	</footer>
 </body>
 </html>
