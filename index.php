@@ -12,25 +12,25 @@
 <body>
 	<header>
 		<div class="logo left">
-			<img src="imagenes/logo.png" alt="WeddingPhotoGallery"/>
+			<img src="images/logo.png" alt="WeddingPhotoGallery"/>
 		</div>
 		<div class="titular">
-			<h1 class="titulo">
-			Wedding PhotoGallery
+			<h1 class="cabecera">
+			Wedding PhotoGallery - Juan y Laura - 26 Abril
 			</h1>
 		</div>
 	</header>
 	<nav>
 		<ul class="menu">
 			<li><a href="index.php">Sube tu foto</a></li>
-			<li><a href="#">Ver la galeria</a></li>
+			<li><a href="galeria.php">Ver la galeria</a></li>
 		</ul>
 	</nav>
 <section class="posts">
 		<article class="post">
 			<div class="descripcion">
 				<figure class="imagen">
-				<img src="imagenes/upload.jpg">
+				<img src="images/upload.jpg">
 				</figure>
 				<div class="detalles">
 				<h2 class="titulo">
@@ -44,8 +44,7 @@
 				<div class="votos">
 					<span class="total">
 					<form action="#" method="post" enctype="multipart/form-data">
-					<label for="file">Foto:</label>
-					<input type="file" name="file" id="file">
+					Foto: <input name="uploaded" type="file" />
 					<input type="submit" name="submit" value="Enviar">
 					</form>
 					</span>

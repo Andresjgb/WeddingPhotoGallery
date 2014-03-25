@@ -1,38 +1,34 @@
 <?php
-$allowedExts = array("jpeg", "jpg", "png", "JPG", "JPEG", "PNG" );
-$temp = explode(".", $_FILES["file"]["name"]);
-$extension = end($temp);
-if ((($_FILES["file"]["type"] == "image/jpeg")
-|| ($_FILES["file"]["type"] == "image/jpg")
-|| ($_FILES["file"]["type"] == "image/x-png")
-|| ($_FILES["file"]["type"] == "image/png"))
-&& in_array($extension, $allowedExts))
-  {
-  if ($_FILES["file"]["error"] > 0)
-    {
-    //echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-    }
-  else
-    {
-    //echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-    //echo "Type: " . $_FILES["file"]["type"] . "<br>";
-    //echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-    //echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+ //This function separates the extension from the rest of the file name and returns it 
+ function findexts ($filename) 
+ { 
+ $filename = strtolower($filename) ; 
+ $exts = split("[/\\.]", $filename) ; 
+ $n = count($exts)-1; 
+ $exts = $exts[$n]; 
+ return $exts; 
+ } 
+ 
+ //This applies the function to our file  
+ $ext = findexts ($_FILES['uploaded']['name']);
 
-    if (file_exists("img/" . $_FILES["file"]["name"]))
-      {
-      echo "<span class='mal'>ERROR! " . $_FILES["file"]["name"] . " ya existe, renombralo.</span>";
-      }
-    else
-      {
-      move_uploaded_file($_FILES["file"]["tmp_name"],
-      "img/" . $_FILES["file"]["name"]);
-      echo "<span class='bien'>SUBIDA COMPLETA :)</span>";
-      }
-    }
-  }
-else
-  {
-  //echo "Invalid file";
-  }
-?>
+ //This line assigns a random number to a variable. You could also use a timestamp here if you prefer. 
+ $ran = rand () ;
+
+ //This takes the random number (or timestamp) you generated and adds a . on the end, so it is ready of the file extension to be appended.
+ $ran2 = $ran.".";
+
+ //This assigns the subdirectory you want to save into... make sure it exists!
+ $target = "img/";
+ //This combines the directory, the random file name, and the extension
+ $target = $target . $ran2.$ext; 
+
+ if(move_uploaded_file($_FILES['uploaded']['tmp_name'], $target)) 
+ {
+ echo "<span class='bien'>Foto subida correctamente :)</span>";
+ } 
+ else
+ {
+ //echo "Sorry, there was a problem uploading your file.";
+ }
+ ?> 
